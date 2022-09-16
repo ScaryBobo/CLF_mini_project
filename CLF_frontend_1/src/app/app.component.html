@@ -1,7 +1,7 @@
 <div>
   <div class="action-button-container">
-    <app-add-contact-button></app-add-contact-button>
-    <app-view-contact-button></app-view-contact-button>
+    <app-add-contact-button (appState)="updateState($event)"></app-add-contact-button>
+    <app-view-contact-button (appState)="updateState($event)"></app-view-contact-button>
   </div>
 
   <div [ngSwitch]="appState">

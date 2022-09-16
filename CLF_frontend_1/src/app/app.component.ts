@@ -6,9 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
 
-contactForm = false;
-appState: any = "addContact"
+
+  contactForm = false;
+  appState: any
+
+
+  updateState(event: string) {
+    console.log(event);
+    this.appState = event;
+  }
+
+
+
 
 }

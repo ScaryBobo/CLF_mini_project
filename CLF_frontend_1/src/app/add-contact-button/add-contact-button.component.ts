@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-add-contact-button',
@@ -7,12 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddContactButtonComponent implements OnInit {
 
+  @Output()
+  appState = new Subject<string>;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  addContactButton(){
-    
+  onClickHandler(){
+    this.appState.next('addContact');
   }
 }
