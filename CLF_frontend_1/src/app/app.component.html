@@ -1,4 +1,4 @@
-<div>
+<div style="width: 300px ; text-align: center;">
   <div class="action-button-container">
     <app-add-contact-button (appState)="updateState($event)"></app-add-contact-button>
     <app-view-contact-button (appState)="updateState($event)"></app-view-contact-button>
@@ -6,7 +6,7 @@
 
   <div [ngSwitch]="appState">
     <div *ngSwitchCase="'addContact'">
-      <app-add-contact-form></app-add-contact-form>
+      <app-add-contact-form (appState)="updateState($event)"></app-add-contact-form>
     </div>
     
     <div *ngSwitchCase="'viewContactList'">

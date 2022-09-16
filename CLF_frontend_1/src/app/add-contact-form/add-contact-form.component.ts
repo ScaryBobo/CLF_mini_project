@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-add-contact-form',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddContactFormComponent implements OnInit {
 
-  constructor() { }
+  @Output()
+  appState = new Subject<string>;
+
+  
+  contactForm !: FormGroup
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.contactForm = this.createForm();
+  }
+
+  private createForm(): FormGroup{
+    return this.fb.group({
+      name: this.fb.control<string>('', Validators.minLength(3)),
+      email: this.fb.control<string>('', Validators.email),
+      mobile: this.fb.control<number>(0, Validators.minLength(8))
+    })
+  }
+
+  addContact(){
+    //Input svc method
+
+    this.appState.next('viewContactList');
   }
 
 }

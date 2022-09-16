@@ -6,6 +6,7 @@ import { AddContactButtonComponent } from './add-contact-button/add-contact-butt
 import { ViewContactButtonComponent } from './view-contact-button/view-contact-button.component';
 import { AddContactFormComponent } from './add-contact-form/add-contact-form.component';
 import { ViewContactListviewComponent } from './view-contact-listview/view-contact-listview.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { ViewContactListviewComponent } from './view-contact-listview/view-conta
     ViewContactListviewComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, ReactiveFormsModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
