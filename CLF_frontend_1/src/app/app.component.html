@@ -1,0 +1,21 @@
+<div>
+  <div class="action-button-container">
+    <app-add-contact-button></app-add-contact-button>
+    <app-view-contact-button></app-view-contact-button>
+  </div>
+
+  <div [ngSwitch]="appState">
+    <div *ngSwitchCase="'addContact'">
+      <app-add-contact-form></app-add-contact-form>
+    </div>
+    
+    <div *ngSwitchCase="'viewContactList'">
+      <app-view-contact-listview></app-view-contact-listview>
+    </div>
+
+    <div *ngSwitchDefault> Please select add contact or view contact list</div>
+  </div>
+
+
+</div>
+
